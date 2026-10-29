@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farik Grippa | Sitio Oficial - La Voz de la Salsa Romántica</title>
+    <meta name="description" content="Sitio web oficial de Farik Grippa, uno de los referentes más importantes de la salsa romántica contemporánea. Música, conciertos, vídeos y contrataciones.">
+    
+    <!-- Favicon SVG en data URI -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%230f0f11' stroke='%23d4af37' stroke-width='4'/><path d='M40 30 v40 l30 -20 z' fill='%23d4af37'/></svg>">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#f3e5ab',
+                            500: '#d4af37',
+                            600: '#aa8c2c',
+                            700: '#836b1f',
+                        },
+                        darkbg: '#0a0a0c',
+                        cardbg: '#141419',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0c;
+            color: #f3f4f6;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fff2ac 0%, #d4af37 50%, #aa8c2c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border-glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+        }
+        .gold-border-glow:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+        }
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(10,10,12,0.4) 0%, rgba(10,10,12,0.85) 75%, rgba(10,10,12,1) 100%);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-500 selection:text-black">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-darkbg/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="text-2xl font-black tracking-wider font-heading gold-gradient-text flex items-center gap-2">
+                FARIK GRIPPA
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide uppercase">
+                <a href="#bio" class="hover:text-gold-500 transition-colors">Biografía</a>
+                <a href="#musica" class="hover:text-gold-500 transition-colors">Música</a>
+                <a href="#tour" class="hover:text-gold-500 transition-colors">Tour</a>
+                <a href="#videos" class="hover:text-gold-500 transition-colors">Vídeos</a>
+                <a href="#contacto" class="hover:text-gold-500 transition-colors">Contacto</a>
+            </nav>
+
+            <!-- Social Links Quick Access -->
+            <div class="hidden lg:flex items-center space-x-4 text-gray-300">
+                <a href="https://open.spotify.com" target="_blank" class="hover:text-gold-500 transition-colors text-lg" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+                <a href="https://youtube.com" target="_blank" class="hover:text-gold-500 transition-colors text-lg" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://instagram.com" target="_blank" class="hover:text-gold-500 transition-colors text-lg" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-gray-200 focus:outline-none" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cardbg border-b border-gold-500/20 px-6 py-6 space-y-4">
+            <a href="#bio" class="block text-lg font-medium hover:text-gold-500 transition-colors">Biografía</a>
+            <a href="#musica" class="block text-lg font-medium hover:text-gold-500 transition-colors">Música</a>
+            <a href="#tour" class="block text-lg font-medium hover:text-gold-500 transition-colors">Tour</a>
+            <a href="#videos" class="block text-lg font-medium hover:text-gold-500 transition-colors">Vídeos</a>
+            <a href="#contacto" class="block text-lg font-medium hover:text-gold-500 transition-colors">Contacto</a>
+            <div class="flex space-x-6 text-xl pt-4 border-t border-gray-800">
+                <a href="https://open.spotify.com" target="_blank" class="hover:text-gold-500"><i class="fab fa-spotify"></i></a>
+                <a href="https://youtube.com" target="_blank" class="hover:text-gold-500"><i class="fab fa-youtube"></i></a>
+                <a href="https://instagram.com" target="_blank" class="hover:text-gold-500"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank" class="hover:text-gold-500"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Ancho completo) -->
+    <section class="relative w-full h-screen min-h-[650px] flex items-center justify-center overflow-hidden">
+        <!-- Imagen de Fondo Principal con Fallback -->
+        <div class="absolute inset-0 w-full h-full">
+            <img 
+                src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/USVSHI7X2JCF3HAY3EH6ICKYSY.jpg" 
+                alt="Farik Grippa" 
+                class="w-full h-full object-cover object-top filter brightness-90"
+                onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/101010/d4af37?text=Farik+Grippa';"
+            />
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <!-- Contenido Hero -->
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20">
+            <span class="inline-block text-gold-500 tracking-[0.3em] uppercase text-sm sm:text-base font-semibold mb-3 bg-black/40 px-4 py-1.5 rounded-full border border-gold-500/30 backdrop-blur-sm">
+                La Voz Romántica de la Salsa
+            </span>
+            <h1 class="text-5xl sm:text-7xl md:text-8xl font-black font-heading tracking-tight mb-4 text-white uppercase drop-shadow-lg">
+                FARIK <span class="gold-gradient-text">GRIPPA</span>
+            </h1>
+            <p class="text-lg sm:text-2xl text-gray-300 font-light max-w-2xl mx-auto mb-8 leading-relaxed">
+                Pasión, elegancia y sentimiento en cada nota. Siente el poder de la clave moderna.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <a href="#musica" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gold-500 hover:bg-gold-600 text-black font-bold uppercase tracking-wider transition-all transform hover:-translate-y-1 shadow-lg shadow-gold-500/20 flex items-center justify-center gap-3">
+                    <i class="fas fa-play"></i> Escuchar Ahora
+                </a>
+                <a href="#tour" class="w-full sm:w-auto px-8 py-4 rounded-full border-2 border-white/40 hover:border-gold-500 text-white hover:text-gold-500 font-semibold uppercase tracking-wider backdrop-blur-sm transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                    <i class="fas fa-ticket-alt"></i> Ver Gira 2026
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <a href="#bio" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 text-gray-400 hover:text-gold-500 transition-colors animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </a>
+    </section>
+
+    <!-- Bio Section -->
+    <section id="bio" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div class="relative">
+                <div class="absolute -inset-4 rounded-2xl bg-gradient-to-r from-gold-500/20 to-transparent blur-xl"></div>
+                <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                    <img 
+                        src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/USVSHI7X2JCF3HAY3EH6ICKYSY.jpg" 
+                        alt="Farik Grippa Biografía" 
+                        class="w-full h-[500px] object-cover"
+                        onerror="this.onerror=null; this.src='https://placehold.co/800x1000/141419/d4af37?text=Farik+Grippa';"
+                    />
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="inline-flex items-center gap-2 text-gold-500 text-sm uppercase tracking-widest font-semibold">
+                    <span class="w-8 h-[2px] bg-gold-500"></span>
+                    Sobre el Artista
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-bold font-heading text-white">
+                    Reinventando la <span class="gold-gradient-text">Salsa Romántica</span>
+                </h2>
+                <p class="text-gray-300 leading-relaxed text-base sm:text-lg">
+                    Farik Grippa ha consolidado su posición como uno de los máximos exponentes de la salsa contemporánea. Con una potente interpretación vocal y un carisma escénico inigualable, ha conquistado escenarios nacionales e internacionales llevándose la ovación de los amantes del género.
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                    A través de éxitos rotundos y colaboraciones memorables, Farik mantiene viva la esencia de la salsa romántica fusionando ritmos tradicionales con arreglos modernos y frescos que trascienden generaciones.
+                </p>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
+                    <div>
+                        <span class="block text-2xl sm:text-4xl font-bold gold-gradient-text font-heading">+10M</span>
+                        <span class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">Reproducciones</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl sm:text-4xl font-bold gold-gradient-text font-heading">+50</span>
+                        <span class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">Conciertos/Año</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl sm:text-4xl font-bold gold-gradient-text font-heading">#1</span>
+                        <span class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">En Radios</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music / Releases Section -->
+    <section id="musica" class="py-24 bg-cardbg/50 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-500 text-sm uppercase tracking-widest font-semibold">Discografía & Sencillos</span>
+                <h2 class="text-3xl sm:text-5xl font-bold font-heading text-white mt-2">Lanzamientos <span class="gold-gradient-text">Destacados</span></h2>
+                <p class="text-gray-400 mt-4">Escucha los grandes éxitos de Farik Grippa disponibles en todas las plataformas digitales.</p>
+            </div>
+
+            <!-- Cards de Canciones -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Single 1 -->
+                <div class="bg-cardbg rounded-2xl p-5 border border-white/10 gold-border-glow transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="relative rounded-xl overflow-hidden mb-4 aspect-square">
+                        <img src="https://placehold.co/400x400/1a1a20/d4af37?text=Háblame+de+Ti" alt="Single Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button class="w-14 h-14 rounded-full bg-gold-500 text-black flex items-center justify-center text-xl shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
+                                <i class="fas fa-play ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gold-500 uppercase tracking-widest font-semibold">Sencillo Éxito</span>
+                    <h3 class="text-xl font-bold text-white mt-1">Háblame de Ti</h3>
+                    <p class="text-gray-400 text-sm mt-1">Farik Grippa • Salsa Romántica</p>
+                    <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-sm">
+                        <span class="text-gray-500">3:45 min</span>
+                        <a href="https://open.spotify.com" target="_blank" class="text-gold-500 hover:text-gold-400 font-semibold flex items-center gap-1">
+                            Spotify <i class="fas fa-external-link-alt text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single 2 -->
+                <div class="bg-cardbg rounded-2xl p-5 border border-white/10 gold-border-glow transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="relative rounded-xl overflow-hidden mb-4 aspect-square">
+                        <img src="https://placehold.co/400x400/1a1a20/d4af37?text=A+Ella" alt="Single Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button class="w-14 h-14 rounded-full bg-gold-500 text-black flex items-center justify-center text-xl shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
+                                <i class="fas fa-play ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gold-500 uppercase tracking-widest font-semibold">Sencillo</span>
+                    <h3 class="text-xl font-bold text-white mt-1">A Ella</h3>
+                    <p class="text-gray-400 text-sm mt-1">Farik Grippa • Versión Salsa</p>
+                    <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-sm">
+                        <span class="text-gray-500">4:12 min</span>
+                        <a href="https://open.spotify.com" target="_blank" class="text-gold-500 hover:text-gold-400 font-semibold flex items-center gap-1">
+                            Spotify <i class="fas fa-external-link-alt text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Single 3 -->
+                <div class="bg-cardbg rounded-2xl p-5 border border-white/10 gold-border-glow transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="relative rounded-xl overflow-hidden mb-4 aspect-square">
+                        <img src="https://placehold.co/400x400/1a1a20/d4af37?text=Somos+Tres" alt="Single Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button class="w-14 h-14 rounded-full bg-gold-500 text-black flex items-center justify-center text-xl shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
+                                <i class="fas fa-play ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gold-500 uppercase tracking-widest font-semibold">Colaboración</span>
+                    <h3 class="text-xl font-bold text-white mt-1">Somos Tres</h3>
+                    <p class="text-gray-400 text-sm mt-1">Farik Grippa ft. Artistas Invitados</p>
+                    <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-sm">
+                        <span class="text-gray-500">3:58 min</span>
+                        <a href="https://open.spotify.com" target="_blank" class="text-gold-500 hover:text-gold-400 font-semibold flex items-center gap-1">
+                            Spotify <i class="fas fa-external-link-alt text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Streaming Platforms -->
+            <div class="mt-16 p-8 bg-gradient-to-r from-cardbg via-darkbg to-cardbg rounded-3xl border border-white/10 text-center flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-left">
+                    <h4 class="text-2xl font-bold text-white">¿Quieres escuchar la discografía completa?</h4>
+                    <p class="text-gray-400 text-sm mt-1">Disponible en Spotify, Apple Music, YouTube Music y Amazon Music.</p>
+                </div>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://open.spotify.com" target="_blank" class="px-6 py-3 rounded-full bg-[#1DB954] text-black font-bold flex items-center gap-2 hover:opacity-90 transition-opacity">
+                        <i class="fab fa-spotify text-xl"></i> Spotify
+                    </a>
+                    <a href="https://apple.com" target="_blank" class="px-6 py-3 rounded-full bg-white text-black font-bold flex items-center gap-2 hover:bg-gray-200 transition-colors">
+                        <i class="fab fa-apple text-xl"></i> Apple Music
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour / Concerts Section -->
+    <section id="tour" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+            <div>
+                <span class="text-gold-500 text-sm uppercase tracking-widest font-semibold">En Vivo</span>
+                <h2 class="text-3xl sm:text-5xl font-bold font-heading text-white mt-2">Próximos <span class="gold-gradient-text">Conciertos</span></h2>
+            </div>
+            <p class="text-gray-400 mt-4 md:mt-0 max-w-md">No te pierdas la oportunidad de vivir el show de salsa más apasionante del momento.</p>
+        </div>
+
+        <!-- Dates List -->
+        <div class="space-y-4">
+            <!-- Show 1 -->
+            <div class="bg-cardbg rounded-2xl p-6 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 hover:border-gold-500/50 transition-all">
+                <div class="flex items-center gap-6 w-full md:w-auto">
+                    <div class="bg-darkbg px-5 py-3 rounded-xl border border-gold-500/30 text-center min-w-[90px]">
+                        <span class="block text-2xl font-bold font-heading gold-gradient-text">15</span>
+                        <span class="text-xs uppercase tracking-widest text-gray-400">NOV 2026</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Gran Teatro de Lima</h3>
+                        <p class="text-gray-400 text-sm"><i class="fas fa-map-marker-alt text-gold-500 mr-1"></i> Lima, Perú</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between w-full md:w-auto gap-4">
+                    <span class="text-sm font-semibold text-green-400 bg-green-950/50 px-3 py-1 rounded-full border border-green-500/30">Pocos Boletos</span>
+                    <a href="#contacto" class="px-6 py-2.5 rounded-full bg-gold-500 hover:bg-gold-600 text-black font-bold text-sm uppercase tracking-wider transition-all">
+                        Comprar Entradas
+                    </a>
+                </div>
+            </div>
+
+            <!-- Show 2 -->
+            <div class="bg-cardbg rounded-2xl p-6 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 hover:border-gold-500/50 transition-all">
+                <div class="flex items-center gap-6 w-full md:w-auto">
+                    <div class="bg-darkbg px-5 py-3 rounded-xl border border-gold-500/30 text-center min-w-[90px]">
+                        <span class="block text-2xl font-bold font-heading gold-gradient-text">28</span>
+                        <span class="text-xs uppercase tracking-widest text-gray-400">NOV 2026</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Festival de Salsa Arequipa</h3>
+                        <p class="text-gray-400 text-sm"><i class="fas fa-map-marker-alt text-gold-500 mr-1"></i> Arequipa, Perú</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between w-full md:w-auto gap-4">
+                    <span class="text-sm font-semibold text-gold-500 bg-gold-950/50 px-3 py-1 rounded-full border border-gold-500/30">Disponible</span>
+                    <a href="#contacto" class="px-6 py-2.5 rounded-full bg-gold-500 hover:bg-gold-600 text-black font-bold text-sm uppercase tracking-wider transition-all">
+                        Comprar Entradas
+                    </a>
+                </div>
+            </div>
+
+            <!-- Show 3 -->
+            <div class="bg-cardbg rounded-2xl p-6 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 hover:border-gold-500/50 transition-all">
+                <div class="flex items-center gap-6 w-full md:w-auto">
+                    <div class="bg-darkbg px-5 py-3 rounded-xl border border-gold-500/30 text-center min-w-[90px]">
+                        <span class="block text-2xl font-bold font-heading gold-gradient-text">12</span>
+                        <span class="text-xs uppercase tracking-widest text-gray-400">DIC 2026</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Noche de Salsa & Elegancia</h3>
+                        <p class="text-gray-400 text-sm"><i class="fas fa-map-marker-alt text-gold-500 mr-1"></i> Santiago, Chile</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between w-full md:w-auto gap-4">
+                    <span class="text-sm font-semibold text-gold-500 bg-gold-950/50 px-3 py-1 rounded-full border border-gold-500/30">Próximamente</span>
+                    <a href="#contacto" class="px-6 py-2.5 rounded-full border border-white/30 hover:border-gold-500 text-white hover:text-gold-500 font-bold text-sm uppercase tracking-wider transition-all">
+                        Reservar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos / Gallery Section -->
+    <section id="videos" class="py-24 bg-cardbg/50 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-500 text-sm uppercase tracking-widest font-semibold">Audiovisual</span>
+                <h2 class="text-3xl sm:text-5xl font-bold font-heading text-white mt-2">Vídeos <span class="gold-gradient-text">Oficiales</span></h2>
+                <p class="text-gray-400 mt-4">Revive las mejores actuaciones y videoclips de Farik Grippa.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Video Item 1 -->
+                <div class="bg-cardbg rounded-2xl overflow-hidden border border-white/10 group">
+                    <div class="relative aspect-video bg-black">
+                        <!-- Embed ficticio / Imagen interactiva -->
+                        <img src="https://placehold.co/800x450/141419/d4af37?text=Video+Oficial+1" alt="Video Farik Grippa" class="w-full h-full object-cover">
+                        <a href="https://youtube.com" target="_blank" class="absolute inset-0 bg-black/40 hover:bg-black/20 transition-colors flex items-center justify-center">
+                            <div class="w-16 h-16 rounded-full bg-red-600 text-white flex items-center justify-center text-2xl shadow-xl transform group-hover:scale-110 transition-transform">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white">Farik Grippa - Presentación En Vivo (Salsa Fest)</h3>
+                        <p class="text-gray-400 text-sm mt-2">Vídeo en directo desde el escenario principal con orquesta completa.</p>
+                    </div>
+                </div>
+
+                <!-- Video Item 2 -->
+                <div class="bg-cardbg rounded-2xl overflow-hidden border border-white/10 group">
+                    <div class="relative aspect-video bg-black">
+                        <img src="https://placehold.co/800x450/141419/d4af37?text=Video+Oficial+2" alt="Video Farik Grippa" class="w-full h-full object-cover">
+                        <a href="https://youtube.com" target="_blank" class="absolute inset-0 bg-black/40 hover:bg-black/20 transition-colors flex items-center justify-center">
+                            <div class="w-16 h-16 rounded-full bg-red-600 text-white flex items-center justify-center text-2xl shadow-xl transform group-hover:scale-110 transition-transform">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white">Videoclip Oficial - Sencillo Romántico</h3>
+                        <p class="text-gray-400 text-sm mt-2">Producción audiovisual cinematográfica grabado en locaciones exclusivas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking Section -->
+    <section id="contacto" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-cardbg rounded-3xl p-8 sm:p-12 border border-white/10 gold-border-glow">
+            
+            <!-- Information -->
+            <div class="space-y-6">
+                <span class="text-gold-500 text-sm uppercase tracking-widest font-semibold">Booking & Management</span>
+                <h2 class="text-3xl sm:text-5xl font-bold font-heading text-white">Contrata el <span class="gold-gradient-text">Show</span></h2>
+                <p class="text-gray-300 leading-relaxed">
+                    Lleva la mejor salsa romántica a tu evento, festival o concierto privado. Ponte en contacto directamente con el equipo de management de Farik Grippa.
+                </p>
+
+                <div class="space-y-4 pt-4">
+                    <div class="flex items-center gap-4 text-gray-300">
+                        <div class="w-12 h-12 rounded-full bg-darkbg border border-gold-500/30 flex items-center justify-center text-gold-500 text-xl">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-gray-400 uppercase">Correo de Contrataciones</span>
+                            <span class="text-lg font-semibold text-white">booking@farikgrippa.com</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 text-gray-300">
+                        <div class="w-12 h-12 rounded-full bg-darkbg border border-gold-500/30 flex items-center justify-center text-gold-500 text-xl">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-gray-400 uppercase">Teléfono / WhatsApp</span>
+                            <span class="text-lg font-semibold text-white">+51 987 654 321</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 text-gray-300">
+                        <div class="w-12 h-12 rounded-full bg-darkbg border border-gold-500/30 flex items-center justify-center text-gold-500 text-xl">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-gray-400 uppercase">Oficina Principal</span>
+                            <span class="text-lg font-semibold text-white">Lima, Perú</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Follow Icons -->
+                <div class="pt-6">
+                    <span class="block text-xs text-gray-400 uppercase mb-3">Sigue a Farik en Redes Sociales</span>
+                    <div class="flex gap-3">
+                        <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-full bg-darkbg border border-white/10 hover:border-gold-500 text-gray-300 hover:text-gold-500 flex items-center justify-center transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-full bg-darkbg border border-white/10 hover:border-gold-500 text-gray-300 hover:text-gold-500 flex items-center justify-center transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" class="w-10 h-10 rounded-full bg-darkbg border border-white/10 hover:border-gold-500 text-gray-300 hover:text-gold-500 flex items-center justify-center transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://tiktok.com" target="_blank" class="w-10 h-10 rounded-full bg-darkbg border border-white/10 hover:border-gold-500 text-gray-300 hover:text-gold-500 flex items-center justify-center transition-colors">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://spotify.com" target="_blank" class="w-10 h-10 rounded-full bg-darkbg border border-white/10 hover:border-gold-500 text-gray-300 hover:text-gold-500 flex items-center justify-center transition-colors">
+                            <i class="fab fa-spotify"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="bg-darkbg p-6 sm:p-8 rounded-2xl border border-white/10">
+                <form id="contact-form" onsubmit="event.preventDefault(); showMessage();" class="space-y-4">
+                    <div>
+                        <label class="block text-xs uppercase text-gray-400 mb-1">Nombre Completo</label>
+                        <input type="text" required class="w-full bg-cardbg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Ej. Juan Pérez">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase text-gray-400 mb-1">Correo Electrónico</label>
+                        <input type="email" required class="w-full bg-cardbg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="tuemail@ejemplo.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase text-gray-400 mb-1">Tipo de Evento</label>
+                        <select class="w-full bg-cardbg border border-white/10 rounded-xl px-4 py-3 text-gray-300 focus:outline-none focus:border-gold-500 transition-colors">
+                            <option>Concierto Público / Festival</option>
+                            <option>Evento Privado / Bodas / Aniversarios</option>
+                            <option>Corporativo</option>
+                            <option>Prensa / Entrevista</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase text-gray-400 mb-1">Detalles del Mensaje</label>
+                        <textarea rows="4" required class="w-full bg-cardbg border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Lugar, fecha tentativa y detalles..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-xl bg-gold-500 hover:bg-gold-600 text-black font-bold uppercase tracking-wider transition-all shadow-lg shadow-gold-500/20">
+                        Enviar Mensaje de Contratación
+                    </button>
+                </form>
+
+                <!-- Feedback Box -->
+                <div id="form-feedback" class="hidden mt-4 p-4 rounded-xl bg-gold-500/10 border border-gold-500 text-gold-400 text-center text-sm">
+                    ¡Gracias por tu mensaje! El equipo de management responderá en breve.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-darkbg py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <span class="text-2xl font-black font-heading gold-gradient-text">FARIK GRIPPA</span>
+                <p class="text-xs text-gray-500 mt-1">© 2026 Farik Grippa. Todos los derechos reservados.</p>
+            </div>
+            
+            <div class="flex space-x-6 text-sm text-gray-400">
+                <a href="#" class="hover:text-gold-500 transition-colors">Términos de Servicio</a>
+                <a href="#" class="hover:text-gold-500 transition-colors">Política de Privacidad</a>
+                <a href="#contacto" class="hover:text-gold-500 transition-colors">Prensa</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JS -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form submission demo
+        function showMessage() {
+            const feedback = document.getElementById('form-feedback');
+            const form = document.getElementById('contact-form');
+            form.reset();
+            feedback.classList.remove('hidden');
+            setTimeout(() => {
+                feedback.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>
